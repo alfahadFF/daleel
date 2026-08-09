@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدليل الطبي الشامل</title>
+
+<style>
+body{margin:0;background:#eefafa}
+</style>
+</head>
+
+<body>
+
+<section class="medical-smart-directory">
+
+<style>
+.medical-smart-directory *{box-sizing:border-box;font-family:Tahoma,Arial,sans-serif}
+.medical-smart-directory{
+  direction:rtl;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top right,rgba(0,191,165,.18),transparent 34%),
+    radial-gradient(circle at bottom left,rgba(0,90,140,.12),transparent 38%),
+    linear-gradient(180deg,#eefafa,#ffffff);
+  color:#123;
+  padding-bottom:35px;
+}
+.medical-smart-directory a{text-decoration:none}
+.medical-smart-directory .hero{
+  padding:44px 16px 76px;
+  text-align:center;
+  color:white;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 25%),
+    linear-gradient(135deg,#003f5c,#00796b,#00bfa5);
+  border-radius:0 0 38px 38px;
+}
+.medical-smart-directory .hero h1{margin:0;font-size:39px;line-height:1.35}
+.medical-smart-directory .hero p{max-width:880px;margin:12px auto 0;line-height:1.85;font-size:17px}
+.medical-smart-directory .container{max-width:1220px;margin:auto;padding:0 14px}
+.medical-smart-directory .control-panel{
+  margin-top:-48px;
+  background:rgba(255,255,255,.97);
+  border-radius:30px;
+  padding:18px;
+  box-shadow:0 18px 40px rgba(0,80,100,.15);
+  border:1px solid #dff2f1;
+  position:relative;
+  z-index:5;
+}
+.medical-smart-directory .tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+.medical-smart-directory .tabs button{
+  border:0;padding:12px 18px;border-radius:999px;background:#eef9f8;
+  color:#00695c;font-weight:bold;white-space:nowrap;cursor:pointer
+}
+.medical-smart-directory .tabs button.active{
+  color:white;background:linear-gradient(135deg,#00695c,#00a896);
+  box-shadow:0 8px 18px rgba(0,137,123,.25)
+}
+.medical-smart-directory .filters{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;margin-top:15px
+}
+.medical-smart-directory select,
+.medical-smart-directory input{
+  width:100%;border:1px solid #cfecea;border-radius:16px;
+  padding:12px;outline:none;background:white;color:#234;font-size:14px
+}
+.medical-smart-directory .switches{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.medical-smart-directory .switches button,
+.medical-smart-directory .reset-btn{
+  border:1px solid #cfecea;background:white;color:#00695c;
+  padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:bold
+}
+.medical-smart-directory .switches button.active{background:#00a896;color:white;border-color:#00a896}
+.medical-smart-directory .reset-btn{background:#f8fbfb;color:#455a64}
+.medical-smart-directory .count{text-align:center;color:#607d8b;margin:18px 0}
+.medical-smart-directory .cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:18px
+}
+.medical-smart-directory .card{
+  background:white;border-radius:27px;overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,80,100,.12);
+  border:1px solid #dff2f1;transition:.2s
+}
+.medical-smart-directory .card:hover{transform:translateY(-3px)}
+.medical-smart-directory .cover{width:100%;height:145px;object-fit:cover;background:#e0f4f2;display:block}
+.medical-smart-directory .body{padding:18px}
+.medical-smart-directory .top{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.medical-smart-directory .logo,
+.medical-smart-directory .logo-placeholder{
+  width:58px;height:58px;min-width:58px;border-radius:50%;
+  background:linear-gradient(135deg,#e0f7f5,#fff);
+  border:3px solid #dff5f2;object-fit:cover;
+  display:flex;align-items:center;justify-content:center;
+  color:#00897b;font-weight:bold;font-size:24px
+}
+.medical-smart-directory h3{margin:0;font-size:21px;color:#075e67;line-height:1.4}
+.medical-smart-directory .specialty{margin-top:5px;color:#607d8b;font-weight:bold;font-size:14px}
+.medical-smart-directory .status{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 11px;border-radius:999px;font-size:12px;
+  font-weight:bold;margin-bottom:10px
+}
+.medical-smart-directory .status.open{background:#e8fff1;color:#118a46;border:1px solid #b7e8c7}
+.medical-smart-directory .status.closed{background:#fff1f1;color:#c62828;border:1px solid #f3b6b6}
+.medical-smart-directory .status.warn{background:#fff8df;color:#8a6400;border:1px solid #f0d58a}
+.medical-smart-directory .info{margin:7px 0;color:#345;line-height:1.7;font-size:14px}
+.medical-smart-directory .badges{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.medical-smart-directory .badge{
+  background:#eef9f8;color:#00796b;padding:6px 10px;
+  border-radius:999px;font-size:12px;font-weight:bold
+}
+.medical-smart-directory .badge.gold{background:#fff4d6;color:#8a6400}
+.medical-smart-directory .price{
+  background:#fff9e8;border:1px dashed #e9b533;color:#604700;
+  padding:10px;border-radius:14px;line-height:1.7;font-size:13px
+}
+.medical-smart-directory .actions{display:flex;gap:8px;margin-top:13px}
+.medical-smart-directory .actions a{
+  flex:1;text-align:center;color:white;padding:10px;
+  border-radius:12px;font-weight:bold;font-size:14px
+}
+.medical-smart-directory .call{background:#00796b}
+.medical-smart-directory .wa{background:#25d366}
+.medical-smart-directory .map{background:#455a64}
+.medical-smart-directory .empty{
+  grid-column:1/-1;text-align:center;background:white;
+  padding:28px;border-radius:22px;color:#777
+}
+.medical-smart-directory .footer{
+  margin-top:30px;background:linear-gradient(135deg,#003f5c,#00796b);
+  color:white;border-radius:28px;padding:25px;
+  display:flex;justify-content:space-between;gap:15px;
+  flex-wrap:wrap;align-items:center
+}
+.medical-smart-directory .footer h2{margin:0 0 8px}
+.medical-smart-directory .footer p{margin:0;line-height:1.8;color:#eafffb}
+.medical-smart-directory .footer a{
+  color:white;padding:12px 18px;border-radius:999px;
+  font-weight:bold;display:inline-block
+}
+.medical-smart-directory .footer .add-wa{background:#25d366}
+.medical-smart-directory .footer .add-call{background:rgba(255,255,255,.18)}
+@media(max-width:600px){
+  .medical-smart-directory .hero h1{font-size:29px}
+  .medical-smart-directory .actions{flex-direction:column}
+}
+</style>
+
+<div class="hero">
+  <h1>الدليل الطبي الشامل</h1>
+
+</div>
+
+<div class="container">
+
+  <div class="control-panel">
+    <div class="tabs" id="msdTabs"></div>
+
+    <div class="filters">
+      <select id="msdSpecialty"></select>
+      <select id="msdArea"></select>
+      <input type="search" id="msdSearch" placeholder="بحث بالاسم أو الخدمة أو العنوان...">
+    </div>
+
+    <div class="switches" id="msdServices"></div>
+  </div>
+
+  <div class="count" id="msdCount"></div>
+  <div class="cards" id="msdCards"></div>
+
+  <div class="footer">
+    <div>
+      <h2>لإضافة بياناتك إلى الدليل</h2>
+      <p>يمكنك التواصل معنا لإضافة طبيب، مركز، مخبر، صيدلية أو خدمة طبية.</p>
+    </div>
+    <div>
+      <a class="add-call" href="tel:00963935865741">اتصال</a>
+      <a class="add-wa" href="https://wa.me/963957334175" target="_blank">واتساب</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+(function(){
+
+const SUPABASE_URL = "https://tycuwolscodmcotvadgo.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_D0z8Veqk_n2wRk-uUoeBdQ_Nt3m-tBL";
+const TABLE_NAME = "medical_directory";
+
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const categories = [
+  {key:"all",label:"الكل"},
+  {key:"doctor",label:"أطباء"},
+  {key:"clinic",label:"عيادات"},
+  {key:"medical_center",label:"مراكز طبية"},
+  {key:"hospital",label:"مشافي"},
+  {key:"dentist",label:"أطباء أسنان"},
+  {key:"physio",label:"علاج فيزيائي"},
+  {key:"nurse",label:"ممرض"},
+  {key:"midwife",label:"قابلة قانونية"},
+  {key:"dental_lab",label:"مختبر أسنان"},
+  {key:"lab",label:"مخبر تحاليل"},
+  {key:"imaging",label:"مراكز تصوير"},
+  {key:"pharmacy",label:"صيدليات"},
+  {key:"medical_supplies",label:"مستلزمات طبية"}
+];
+
+const serviceLabels = {
+  home_visit:"زيارات منزلية",
+  night_service:"إسعاف / دوام ليلي",
+  emergency_service:"حالات إسعافية",
+  open_24h:"24 ساعة",
+  delivery:"توصيل"
+};
+
+let records = [];
+let currentCategory = "all";
+let activeServices = new Set();
+let searchText = "";
+
+const tabsEl = document.getElementById("msdTabs");
+const specialtyEl = document.getElementById("msdSpecialty");
+const areaEl = document.getElementById("msdArea");
+const searchEl = document.getElementById("msdSearch");
+const servicesEl = document.getElementById("msdServices");
+const cardsEl = document.getElementById("msdCards");
+const countEl = document.getElementById("msdCount");
+
+function clean(v){
+  return v === undefined || v === null ? "" : String(v).trim();
+}
+
+function safe(v){
+  return clean(v)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+function yes(v){
+  if(typeof v === "boolean") return v;
+  v = clean(v).toLowerCase();
+  return ["true","1","yes","نعم","متوفر","متوفرة","available"].includes(v);
+}
+
+function normalize(row){
+  let services = row.services;
+
+  if(Array.isArray(services)){
+    services = services.map(s=>clean(s)).filter(Boolean);
+  }else{
+    services = clean(services).split(/[،,]/).map(s=>s.trim()).filter(Boolean);
+  }
+
+  return {
+    id:clean(row.id),
+    external_id:clean(row.external_id),
+    category:clean(row.category),
+    name:clean(row.name),
+    specialty:clean(row.specialty),
+    sub_specialty:clean(row.sub_specialty),
+    area:clean(row.area),
+    address:clean(row.address),
+    working_days:clean(row.working_days),
+    working_hours:clean(row.working_hours),
+    work_days:clean(row.work_days),
+    open_time:clean(row.open_time),
+    close_time:clean(row.close_time),
+    phone:clean(row.phone),
+    whatsapp:clean(row.whatsapp),
+    map_url:clean(row.map_url),
+    logo_url:clean(row.logo_url),
+    image_url:clean(row.image_url),
+    home_visit:yes(row.home_visit),
+    night_service:yes(row.night_service),
+    emergency_service:yes(row.emergency_service),
+    open_24h:yes(row.open_24h),
+    delivery:yes(row.delivery),
+    services:services,
+    price_info:clean(row.price_info),
+    description:clean(row.description),
+    status:clean(row.status) || "active"
+  };
+}
+
+function unique(arr){
+  return [...new Set(arr.filter(Boolean))];
+}
+
+function timeToMinutes(t){
+  const parts = clean(t).split(":");
+  if(parts.length < 2) return null;
+  const h = Number(parts[0]);
+  const m = Number(parts[1]);
+  if(Number.isNaN(h) || Number.isNaN(m)) return null;
+  return h * 60 + m;
+}
+
+function getCurrentStatus(item){
+  if(item.open_24h){
+    return {text:"🟢 مفتوح 24 ساعة", cls:"open"};
+  }
+
+  if(!item.open_time || !item.close_time || !item.work_days){
+    return {text:"ℹ️ الدوام حسب الموعد", cls:"warn"};
+  }
+
+  const now = new Date();
+  const days = ["sun","mon","tue","wed","thu","fri","sat"];
+  const today = days[now.getDay()];
+
+  const allowedDays = clean(item.work_days)
+    .split(",")
+    .map(d=>d.trim().toLowerCase())
+    .filter(Boolean);
+
+  if(allowedDays.length && !allowedDays.includes(today)){
+    return {text:"🔴 إجازة اليوم", cls:"closed"};
+  }
+
+  const current = now.getHours() * 60 + now.getMinutes();
+  const open = timeToMinutes(item.open_time);
+  const close = timeToMinutes(item.close_time);
+
+  if(open === null || close === null){
+    return {text:"ℹ️ الدوام حسب الموعد", cls:"warn"};
+  }
+
+  let isOpen = false;
+
+  if(close >= open){
+    isOpen = current >= open && current <= close;
+  }else{
+    isOpen = current >= open || current <= close;
+  }
+
+  return isOpen
+    ? {text:"🟢 متاح الآن", cls:"open"}
+    : {text:"🔴 مغلق الآن", cls:"closed"};
+}
+
+function currentSource(){
+  return records.filter(r =>
+    r.status === "active" &&
+    (currentCategory === "all" || r.category === currentCategory)
+  );
+}
+
+function renderTabs(){
+  tabsEl.innerHTML = categories.map(c=>`
+    <button class="${currentCategory===c.key ? "active" : ""}" data-cat="${c.key}">
+      ${c.label}
+    </button>
+  `).join("");
+
+  tabsEl.querySelectorAll("button").forEach(btn=>{
+    btn.onclick = ()=>{
+      currentCategory = btn.dataset.cat;
+      activeServices.clear();
+      renderAll(true);
+    };
+  });
+}
+
+function renderSelects(reset){
+  const source = currentSource();
+  const oldSpecialty = specialtyEl.value;
+  const oldArea = areaEl.value;
+
+  const specialties = unique(source.map(r=>r.specialty));
+  const areas = unique(source.map(r=>r.area));
+
+  specialtyEl.innerHTML =
+    `<option value="all">كل الاختصاصات</option>` +
+    specialties.map(s=>`<option value="${safe(s)}">${safe(s)}</option>`).join("");
+
+  areaEl.innerHTML =
+    `<option value="all">كل المناطق</option>` +
+    areas.map(a=>`<option value="${safe(a)}">${safe(a)}</option>`).join("");
+
+  specialtyEl.value = reset ? "all" : (specialties.includes(oldSpecialty) ? oldSpecialty : "all");
+  areaEl.value = reset ? "all" : (areas.includes(oldArea) ? oldArea : "all");
+}
+
+function renderServiceFilters(){
+  const source = currentSource();
+  const available = [];
+
+  Object.keys(serviceLabels).forEach(key=>{
+    if(source.some(r=>r[key])) available.push(key);
+  });
+
+  servicesEl.innerHTML = available.map(key=>`
+    <button class="${activeServices.has(key) ? "active" : ""}" data-service="${key}">
+      ${serviceLabels[key]}
+    </button>
+  `).join("");
+
+  servicesEl.innerHTML += `<button class="reset-btn" data-reset="1">إعادة تعيين</button>`;
+
+  servicesEl.querySelectorAll("button").forEach(btn=>{
+    if(btn.dataset.reset){
+      btn.onclick = ()=>{
+        activeServices.clear();
+        specialtyEl.value = "all";
+        areaEl.value = "all";
+        searchEl.value = "";
+        searchText = "";
+        renderAll(false);
+      };
+      return;
+    }
+
+    btn.onclick = ()=>{
+      const key = btn.dataset.service;
+      activeServices.has(key) ? activeServices.delete(key) : activeServices.add(key);
+      renderCards();
+      renderServiceFilters();
+    };
+  });
+}
+
+function row(icon,label,value){
+  if(!clean(value)) return "";
+  return `<div class="info">${icon} <strong>${label}:</strong> ${safe(value)}</div>`;
+}
+
+function matchRecord(r){
+  if(r.status !== "active") return false;
+  if(currentCategory !== "all" && r.category !== currentCategory) return false;
+  if(specialtyEl.value !== "all" && r.specialty !== specialtyEl.value) return false;
+  if(areaEl.value !== "all" && r.area !== areaEl.value) return false;
+
+  for(const key of activeServices){
+    if(!r[key]) return false;
+  }
+
+  if(searchText){
+    const text = [
+      r.name,
+      r.specialty,
+      r.sub_specialty,
+      r.area,
+      r.address,
+      r.working_days,
+      r.working_hours,
+      r.phone,
+      r.description,
+      ...r.services
+    ].join(" ").toLowerCase();
+
+    if(!text.includes(searchText.toLowerCase())) return false;
+  }
+
+  return true;
+}
+
+function renderCards(){
+  const items = records
+    .filter(matchRecord)
+    
+  countEl.textContent = "عدد النتائج: " + items.length;
+
+  if(!items.length){
+    cardsEl.innerHTML = `<div class="empty">لا توجد نتائج مطابقة حالياً</div>`;
+    return;
+  }
+
+  cardsEl.innerHTML = items.map(r=>{
+    const phone = clean(r.phone).replace(/\s+/g,"");
+    const wa = clean(r.whatsapp || r.phone).replace(/\s+/g,"");
+    const status = getCurrentStatus(r);
+
+    return `
+      <div class="card">
+        ${r.image_url ? `<img class="cover" src="${safe(r.image_url)}" alt="">` : ""}
+
+        <div class="body">
+          <div class="top">
+            ${r.logo_url
+              ? `<img class="logo" src="${safe(r.logo_url)}" alt="">`
+              : `<div class="logo-placeholder">✚</div>`
+            }
+
+            <div>
+              <h3>${safe(r.name)}</h3>
+              <div class="specialty">${safe(r.specialty)}</div>
+            </div>
+          </div>
+
+          <div class="status ${status.cls}">${status.text}</div>
+
+          ${row("📌","التفصيل",r.sub_specialty)}
+          ${row("📍","المنطقة",r.area)}
+          ${row("🏥","العنوان",r.address)}
+          ${row("📅","أيام الدوام",r.working_days)}
+          ${row("🕒","ساعات الدوام",r.working_hours)}
+          ${row("📞","الهاتف",r.phone)}
+          ${row("📝","ملاحظات",r.description)}
+
+          <div class="badges">
+            ${r.home_visit ? `<span class="badge gold">زيارات منزلية</span>` : ""}
+            ${r.night_service ? `<span class="badge gold">إسعاف / دوام ليلي</span>` : ""}
+            ${r.emergency_service ? `<span class="badge gold">حالات إسعافية</span>` : ""}
+            ${r.open_24h ? `<span class="badge gold">24 ساعة</span>` : ""}
+            ${r.delivery ? `<span class="badge gold">توصيل</span>` : ""}
+            ${r.services.map(s=>`<span class="badge">${safe(s)}</span>`).join("")}
+          </div>
+
+          ${r.price_info ? `<div class="price">${safe(r.price_info)}</div>` : ""}
+
+          <div class="actions">
+            ${phone ? `<a class="call" href="tel:${phone}">اتصال</a>` : ""}
+            ${wa ? `<a class="wa" target="_blank" href="https://wa.me/${wa}">واتساب</a>` : ""}
+            ${r.map_url ? `<a class="map" target="_blank" href="${safe(r.map_url)}">الموقع</a>` : ""}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderAll(resetSelects){
+  renderTabs();
+  renderSelects(resetSelects);
+  renderServiceFilters();
+  renderCards();
+}
+
+async function loadData(){
+  cardsEl.innerHTML = `<div class="empty">جاري تحميل البيانات...</div>`;
+
+const { data, error } = await supabaseClient
+  .from(TABLE_NAME)
+  .select("*")
+  .eq("status", "active")
+  .order("external_id", { ascending: true });
+  
+  if(error){
+    console.error(error);
+    cardsEl.innerHTML = `
+      <div class="empty">
+        تعذر تحميل البيانات من Supabase<br>
+        تأكد من المفتاح العام وسياسات RLS.
+      </div>
+    `;
+    return;
+  }
+
+  records = (data || [])
+    .map(normalize)
+    .filter(r=>r.name && r.category && r.status === "active");
+
+  renderAll(true);
+}
+
+specialtyEl.onchange = renderCards;
+areaEl.onchange = renderCards;
+searchEl.oninput = function(){
+  searchText = this.value.trim();
+  renderCards();
+};
+
+loadData();
+
+})();
+</script>
+
+</section>
+
+</body>
+</html>
