@@ -1,0 +1,26 @@
+{
+  "name": "الدليل الطبي الشامل",
+  "short_name": "الدليل الطبي",
+  "description": "دليلك الطبي الشامل للاستشارات والخدمات الطبية",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eaf9ff",
+  "theme_color": "#0072ff",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dvzg70krq/image/upload/v1786272033/icon-192_pmyble.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/dvzg70krq/image/upload/v1786272034/icon-512_pnroqy.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
