@@ -12,6 +12,16 @@
 body{margin:0;background:#eefafa}
 </style>
 </head>
+<script>
+  // تسجيل ملف sw.js في المتصفح
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log('Service Worker Registered Successfully!'))
+        .catch(err => console.error('Service Worker Failed:', err));
+    });
+  }
+</script>
 
 <body>
 
